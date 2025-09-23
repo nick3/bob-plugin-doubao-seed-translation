@@ -31,7 +31,7 @@ async function build() {
  * Package the plugin into a .bobplugin file
  */
 async function packagePlugin(version: string): Promise<string> {
-const packageName = `doubao-seed-translation-${version}.bobplugin`;
+  const packageName = `doubao-seed-translation-${version}.bobplugin`;
   const packagePath = path.join(distDir, packageName);
 
   console.log(`Creating package: ${packageName}...`);
@@ -66,7 +66,7 @@ async function updateAppcast(
     version: version,
     desc: desc,
     sha256: fileHash,
-  url: `https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/download/v${version}/doubao-seed-translation-${version}.bobplugin`,
+    url: `https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/download/v${version}/doubao-seed-translation-${version}.bobplugin`,
     minBobVersion: '1.8.0',
   };
 
