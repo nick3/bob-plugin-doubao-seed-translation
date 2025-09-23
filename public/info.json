@@ -1,12 +1,12 @@
 {
-  "appcast": "https://raw.githubusercontent.com/openai-translator/bob-plugin-openai-translator/main/appcast.json",
-  "author": "yetone <yetoneful@gmail.com>",
+  "appcast": "https://raw.githubusercontent.com/nick3/bob-plugin-doubao-seed-translation/main/appcast.json",
+  "author": "nick3",
   "category": "translate",
-  "homepage": "https://github.com/openai-translator/bob-plugin-openai-translator",
+  "homepage": "https://github.com/nick3/bob-plugin-doubao-seed-translation",
   "icon": "",
-  "identifier": "yetone.openai.translator",
+  "identifier": "nick3.doubao.seed.translation",
   "minBobVersion": "1.8.0",
-  "name": "OpenAI Translator",
+  "name": "Doubao Seed Translation",
   "options": [
     {
       "defaultValue": "openai",
@@ -27,13 +27,17 @@
         {
           "title": "Google Gemini",
           "value": "gemini"
+        },
+        {
+          "title": "Doubao Seed Transformer",
+          "value": "doubao-seed"
         }
       ],
       "title": "Service Provider",
       "type": "menu"
     },
     {
-      "desc": "OpenAI: https://api.openai.com\n\nOpenAI Compatible: 完整的 API 地址，例如：https://gateway.ai.cloudflare.com/v1/CF_ACCOUNT_ID/GATEWAY_ID/openai/responses\n\nAzure OpenAI: https://RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/responses?api-version=preview\n\nGoogle Gemini: https://generativelanguage.googleapis.com/v1beta/models",
+      "desc": "OpenAI: https://api.openai.com\n\nOpenAI Compatible: 完整的 API 地址，例如：https://gateway.ai.cloudflare.com/v1/CF_ACCOUNT_ID/GATEWAY_ID/openai/responses\n\nAzure OpenAI: https://RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/responses?api-version=preview\n\nGoogle Gemini: https://generativelanguage.googleapis.com/v1beta/models\n\nDoubao Seed Transformer: 在 EdgeOne 部署的函数地址，必须以 /v1/chat/completions 结尾，例如：https://example.com/v1/chat/completions",
       "identifier": "apiUrl",
       "textConfig": {
         "height": "55",
@@ -81,6 +85,10 @@
         {
           "title": "Gemini 2.5 Flash-Lite",
           "value": "gemini-2.5-flash-lite"
+        },
+        {
+          "title": "Doubao Seed Translation",
+          "value": "doubao-seed-translation"
         }
       ],
       "title": "模型",

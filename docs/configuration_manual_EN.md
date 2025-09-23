@@ -16,9 +16,13 @@
 
   - Google Gemini: Use [Google Gemini](https://ai.google.dev/gemini-api/docs) service
 
+  - Doubao Seed Transformer: Use the edge function adapter from [doubao-seed-translation-transformer](https://github.com/nick3/doubao-seed-translation-transformer)
+    - Leave the System/User prompt inputs empty to rely on the built-in translation prompt
+    - Streaming is not supported; the plugin automatically falls back to non-streaming mode, so set “Stream Output” to `Disable`
+
 ### API URL
 
-- Optional (OpenAI and Google Gemini) / Required (Azure OpenAI and OpenAI Compatible)
+- Optional (OpenAI and Google Gemini) / Required (Azure OpenAI, OpenAI Compatible, and Doubao Seed Transformer)
 
 - Default value: None
 
@@ -58,6 +62,14 @@
     https://generativelanguage.googleapis.com/v1beta/models
     ```
 
+  - Doubao Seed Transformer: Required, provide the fully qualified Chat Completions endpoint exposed by your deployment. The URL must end with `/v1/chat/completions`, for example:
+
+    ```
+    https://example.com/v1/chat/completions
+    ```
+
+    Note: Deploy the EdgeOne function from the upstream repository first, then copy the HTTPS endpoint into Bob
+
 ### API KEY
 
 - Required
@@ -78,6 +90,8 @@
 
   - When selecting `custom`, the `Custom Model` configuration item needs to be set
 
+  - For Doubao Seed Transformer, the default model is `doubao-seed-translation`; select it from the dropdown or provide your custom deployment name
+
 ### Custom Model
 
 - Optional
@@ -87,6 +101,8 @@
 - Description
 
   - A linked item, when the `Model` configuration selects `custom`, this configuration item's model will be read
+
+  - Use this field to override the default Doubao model ID if your deployment uses a different name
 
 ### System Prompt
 
@@ -129,6 +145,7 @@
   - When enabled, translation results will be displayed in real-time
 
   - When disabled, results will be displayed all at once after translation is complete
+  - Doubao Seed Transformer does not support streaming responses; the plugin forces non-streaming requests
 
 ### Temperature
 

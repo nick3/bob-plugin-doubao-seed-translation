@@ -1,20 +1,20 @@
 <h4 align="right">
-  <strong>简体中文</strong> | <a href="https://github.com/openai-translator/bob-plugin-openai-translator/blob/main/docs/README_EN.md">English</a>
+  <strong>简体中文</strong> | <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/blob/main/docs/README_EN.md">English</a>
 </h4>
 
 <div>
-  <h1 align="center">OpenAI Translator Bob Plugin</h1>
+  <h1 align="center">Doubao Seed Translation Bob Plugin</h1>
   <p align="center">
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases" target="_blank">
-        <img alt="release" src="https://github.com/openai-translator/bob-plugin-openai-translator/actions/workflows/release.yaml/badge.svg">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases" target="_blank">
+        <img alt="release" src="https://github.com/nick3/bob-plugin-doubao-seed-translation/actions/workflows/release.yaml/badge.svg">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/openai-translator/bob-plugin-openai-translator?style=flat">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/nick3/bob-plugin-doubao-seed-translation?style=flat">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
-        <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/openai-translator/bob-plugin-openai-translator/total">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
+        <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/nick3/bob-plugin-doubao-seed-translation/total">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
         <img alt="language" src="https://img.shields.io/badge/language-TypeScript-brightgreen?style=flat&color=blue">
     </a>
   </p>
@@ -22,11 +22,18 @@
 
 > **Note**
 >
-> 重要更新：非 macOS 用户可以使用我开发的基于 OpenAI API 的划词翻译浏览器插件 [openai-translator](https://github.com/yetone/openai-translator) 以解燃眉之急。
+> 使用 Doubao Seed Transformer 时，请在 Bob 插件配置中将“流式输出”调整为 `Disable`，并可将系统指令与用户指令留空以沿用默认提示。
 
 ## 简介
 
 ChatGPT 向我们展示了 GPT 模型的伟大之处，所以我使用 OpenAI 的 API 实现了这个 Bob 的翻译 + 润色 + 语法修改插件，效果拔群！
+
+本项目基于 yetone 开源的 [OpenAI Translator Bob Plugin](https://github.com/openai-translator/bob-plugin-openai-translator) 二次开发。相比原始项目，当前仓库：
+- 新增了 Doubao Seed Transformer 服务提供商与模型预设，并适配其非流式响应特性；
+- 更新了配置文档，明确 Doubao 需要禁用流式输出且可留空系统/用户指令；
+- 重命名插件元数据与发布流程，指向 `nick3/bob-plugin-doubao-seed-translation` 的新仓库与包名。
+
+当前版本同时支持 OpenAI、OpenAI Compatible、Azure OpenAI、Google Gemini 以及 Doubao Seed Transformer（豆包翻译 EdgeOne 适配器）。Doubao 服务暂不支持流式输出，插件会自动改用非流式模式，配置时可保持系统/用户指令为空即可使用默认提示。
 
 <details>
 
@@ -41,13 +48,11 @@ ChatGPT 向我们展示了 GPT 模型的伟大之处，所以我使用 OpenAI �
 
 此插件已支持使用 OpenAI API 对句子进行润色和语法修改，只需要把目标语言设置为与源语言一样即可，全面替代 Grammarly！而且理论上任何语言都可以润色，不仅仅是英语。
 
-如果你不喜欢将翻译功能和文本润色功能放在一起，这里单独拆分出了一个专门用来文本润色和语法纠错的插件: [bob-plugin-openai-polisher](https://github.com/openai-translator/bob-plugin-openai-polisher)，这个润色插件具有更高级的润色功能，比如解释修改原因等。
-
 ## 使用方法
 
 1. 安装 [Bob](https://bobtranslate.com/guide/#%E5%AE%89%E8%A3%85) (版本 >= 0.50)，一款 macOS 平台的翻译和 OCR 软件
 
-2. 下载此插件: [openai-translator.bobplugin](https://github.com/openai-translator/bob-plugin-openai-translator/releases/latest)
+2. 下载此插件: [doubao-seed-translation.bobplugin](https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/latest)
 
 3. <details>
 
@@ -81,7 +86,7 @@ ChatGPT 向我们展示了 GPT 模型的伟大之处，所以我使用 OpenAI �
 
 ## 贡献
 
-如果你想要为 OpenAI Translator Bob Plugin 做出贡献，请阅读[贡献指南](.github/contributing.md)中的说明。我们可以先从这个[列表中的问题](https://github.com/openai-translator/bob-plugin-openai-translator/contribute)开始。
+如果你想要为 Doubao Seed Translation Bob Plugin 做出贡献，请阅读[贡献指南](.github/contributing.md)中的说明。我们可以先从这个[列表中的问题](https://github.com/nick3/bob-plugin-doubao-seed-translation/contribute)开始。
 
 ## 感谢
 

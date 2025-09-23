@@ -16,10 +16,14 @@
 
   - Google Gemini：使用 [Google Gemini](https://ai.google.dev/gemini-api/docs) 服务
 
+  - Doubao Seed Transformer：使用 [doubao-seed-translation-transformer](https://github.com/nick3/doubao-seed-translation-transformer) 在边缘函数上部署的兼容接口
+    - 支持使用默认的系统指令与用户指令，保持输入框为空即可按需生成翻译提示
+    - 暂不支持流式输出，插件会自动改用非流式模式，建议在配置里将「流式输出」设为 `Disable`
+
 
 ### API URL
 
-- 可选项（OpenAI 和 Google Gemini）/ 必填项（Azure OpenAI 和 OpenAI Compatible）
+- 可选项（OpenAI 和 Google Gemini）/ 必填项（Azure OpenAI、OpenAI Compatible、Doubao Seed Transformer）
 
 - 默认值：无
 
@@ -59,6 +63,14 @@
     https://generativelanguage.googleapis.com/v1beta/models
     ```
 
+  - Doubao Seed Transformer：必填，需填入部署后的完整 Chat Completions API 地址，必须以 `/v1/chat/completions` 结尾，例如：
+
+    ```
+    https://example.com/v1/chat/completions
+    ```
+
+    注：请先使用官方仓库部署 EdgeOne 函数，并在 Bob 中填入返回的 HTTPS 地址
+
 ### API KEY
 
 - 必填项
@@ -79,6 +91,8 @@
 
   - 选择 `custom` 时，需要设置 `自定义模型` 配置项
 
+  - Doubao Seed Transformer 默认模型为 `doubao-seed-translation`，可直接在下拉菜单中选择或通过自定义模型填写
+
 ### 自定义模型
 
 - 可选项
@@ -88,6 +102,8 @@
 - 说明
 
   - 联动项，当 `模型` 配置选择 `custom` 时，会读取此配置项设置的模型
+
+  - 若对 Doubao 服务有自定义部署名称，可在此填写对应模型 ID
 
 ### 系统指令
 
@@ -130,6 +146,7 @@
   - 启用后翻译结果会实时显示
 
   - 禁用后会等待翻译完成后一次性显示
+  - Doubao Seed Transformer 暂不支持流式返回，插件会强制使用非流式逻辑
 
 ### 温度
 

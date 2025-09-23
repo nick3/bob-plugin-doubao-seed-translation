@@ -17,7 +17,9 @@ const validatePluginConfig = (): ServiceError | null => {
   const { apiKeys, apiUrl, customModel, model, serviceProvider } = $option;
 
   if (
-    ['azure-openai', 'openai-compatible'].includes(serviceProvider) &&
+    ['azure-openai', 'openai-compatible', 'doubao-seed'].includes(
+      serviceProvider,
+    ) &&
     !apiUrl
   ) {
     return {
@@ -25,7 +27,7 @@ const validatePluginConfig = (): ServiceError | null => {
       message: '配置错误 - 请填写 API URL',
       addition: '请在插件配置中填写有效的 API URL',
       troubleshootingLink:
-        'https://github.com/openai-translator/bob-plugin-openai-translator/blob/main/docs/configuration_manual_CN.md#api-url',
+        'https://github.com/nick3/bob-plugin-doubao-seed-translation/blob/main/docs/configuration_manual_CN.md#api-url',
     };
   }
 
@@ -47,6 +49,20 @@ const validatePluginConfig = (): ServiceError | null => {
           'Azure OpenAI 的 API URL 格式应为：https://RESOURCE_NAME.openai.azure.com/openai/deployments/DEPLOYMENT_NAME/responses?api-version=preview 或 https://RESOURCE_NAME.openai.azure.com/openai/v1/responses?api-version=preview',
         troubleshootingLink:
           'https://bobtranslate.com/service/translate/azureopenai.html',
+      };
+    }
+  }
+
+  if (serviceProvider === 'doubao-seed' && apiUrl) {
+    if (!/\/v1\/chat\/completions$/.test(apiUrl)) {
+      return {
+        type: 'param',
+        message:
+          '配置错误 - Doubao 服务的 API URL 必须以 /v1/chat/completions 结尾',
+        addition:
+          '请在插件配置中填写 Doubao Transformer 提供的完整 Chat Completions 地址',
+        troubleshootingLink:
+          'https://github.com/nick3/doubao-seed-translation-transformer',
       };
     }
   }

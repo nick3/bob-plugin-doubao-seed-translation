@@ -55,6 +55,40 @@ export interface OpenAiResponseStreamChunk {
   };
 }
 
+export interface DoubaoChatCompletionChoice {
+  index: number;
+  message?: {
+    role: string;
+    content: string;
+  };
+  delta?: {
+    role?: string;
+    content?: string;
+  };
+  finish_reason: string | null;
+}
+
+export interface DoubaoChatCompletionResponse {
+  id: string;
+  object: 'chat.completion';
+  created: number;
+  model: string;
+  choices: DoubaoChatCompletionChoice[];
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+}
+
+export interface DoubaoChatCompletionStreamChunk {
+  id: string;
+  object: 'chat.completion.chunk';
+  created: number;
+  model: string;
+  choices: DoubaoChatCompletionChoice[];
+}
+
 export interface GeminiResponse {
   usageMetadata: {
     promptTokenCount: number;
@@ -78,7 +112,9 @@ export interface ServiceAdapter {
   buildHeaders: (apiKey: string) => Record<string, string>;
   buildRequestBody: (query: TextTranslateQuery) => Record<string, unknown>;
   parseResponse: (
-    response: HttpResponse<GeminiResponse | OpenAiResponse>,
+    response: HttpResponse<
+      GeminiResponse | OpenAiResponse | DoubaoChatCompletionResponse
+    >,
   ) => string;
   getTextGenerationUrl: (apiUrl: string) => string;
   testApiConnection: (
@@ -118,6 +154,7 @@ export interface ServiceAdapterConfig {
 
 export type ServiceProvider =
   | 'azure-openai'
+  | 'doubao-seed'
   | 'gemini'
   | 'openai'
   | 'openai-compatible';

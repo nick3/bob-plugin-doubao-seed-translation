@@ -1,20 +1,20 @@
 <h4 align="right">
-  <a href="https://github.com/openai-translator/bob-plugin-openai-translator/blob/main/README.md">简体中文</a> | <strong>English</strong>
+  <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/blob/main/README.md">简体中文</a> | <strong>English</strong>
 </h4>
 
 <div>
-  <h1 align="center">OpenAI Translator Bob Plugin</h1>
+  <h1 align="center">Doubao Seed Translation Bob Plugin</h1>
   <p align="center">
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases" target="_blank">
-        <img alt="release" src="https://github.com/openai-translator/bob-plugin-openai-translator/actions/workflows/release.yaml/badge.svg">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases" target="_blank">
+        <img alt="release" src="https://github.com/nick3/bob-plugin-doubao-seed-translation/actions/workflows/release.yaml/badge.svg">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/openai-translator/bob-plugin-openai-translator?style=flat">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/nick3/bob-plugin-doubao-seed-translation?style=flat">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
-        <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/openai-translator/bob-plugin-openai-translator/total">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
+        <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/nick3/bob-plugin-doubao-seed-translation/total">
     </a>
-    <a href="https://github.com/openai-translator/bob-plugin-openai-translator/releases">
+    <a href="https://github.com/nick3/bob-plugin-doubao-seed-translation/releases">
         <img alt="language" src="https://img.shields.io/badge/language-TypeScript-brightgreen?style=flat&color=blue">
     </a>
   </p>
@@ -22,11 +22,18 @@
 
 > **Note**
 >
-> Important update: Non-macOS users can use my browser extension based on OpenAI API for word translation [openai-translator](https://github.com/yetone/openai-translator) to solve urgent needs.
+> When connecting to Doubao Seed Transformer, set `Stream Output` to `Disable` and leave the System/User prompts blank to apply the built-in defaults.
 
 ## Introduction
 
 ChatGPT showcases the greatness of GPT models, so I have implemented the Bob translation + polishing + grammar modification plugin using OpenAI's API, with outstanding results!
+
+This repository is a fork of yetone's original [OpenAI Translator Bob Plugin](https://github.com/openai-translator/bob-plugin-openai-translator). Key differences highlight:
+- Doubao Seed Transformer is now a first-class provider with a model preset and non-streaming handling tailored to the EdgeOne adapter;
+- Configuration manuals clarify that Doubao requires disabling streaming while keeping System/User prompts empty for the default prompts;
+- Plugin metadata, packaging artifacts, and release automation now reference `nick3/bob-plugin-doubao-seed-translation` and the renamed package.
+
+The plugin now works with OpenAI, OpenAI Compatible services, Azure OpenAI, Google Gemini, and the Doubao Seed Transformer edge adapter. Doubao currently responds only in non-streaming mode—the plugin falls back automatically, and you can keep the System/User prompts empty to use the built-in defaults.
 
 <details>
 
@@ -40,13 +47,11 @@ ChatGPT showcases the greatness of GPT models, so I have implemented the Bob tra
 
 This plugin supports polishing sentences and modifying grammar using the OpenAI API. To do so, just set the target language to be the same as the source language. It's a comprehensive alternative to Grammarly! And in theory, any language can be polished, not just English.
 
-If you don't like combining translation functionality and text polishing, a separate plugin specifically for text polishing and grammar correction is available: [bob-plugin-openai-polisher](https://github.com/yetone/bob-plugin-openai-polisher). This polishing plugin has more advanced polishing features, such as explaining the modification reasons, etc.
-
 ## Usage
 
 1. Install [Bob](https://bobtranslate.com/guide/#%E5%AE%89%E8%A3%85) (version >= 0.50), a macOS translation and OCR software
 
-2. Download this plugin: [openai-translator.bobplugin](https://github.com/openai-translator/bob-plugin-openai-translator/releases/latest)
+2. Download this plugin: [doubao-seed-translation.bobplugin](https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/latest)
 
 3. <details>
 
@@ -80,7 +85,7 @@ If you don't like combining translation functionality and text polishing, a sepa
 
 ## Contributing
 
-If you want to contribute to Renovate or get a local copy running, please read the instructions in [contributing guidelines](../.github/contributing.md). To get started look at the list of [good first issues](https://github.com/openai-translator/bob-plugin-openai-translator/contribute).
+If you want to contribute to Renovate or get a local copy running, please read the instructions in [contributing guidelines](../.github/contributing.md). To get started look at the list of [good first issues](https://github.com/nick3/bob-plugin-doubao-seed-translation/contribute).
 
 ## Thanks
 

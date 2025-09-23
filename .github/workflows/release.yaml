@@ -79,8 +79,8 @@ jobs:
         with:
           release_name: ${{ env.VERSION }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/openai-translator-${{ env.VERSION_NUMBER }}.bobplugin
-          asset_name: openai-translator-${{ env.VERSION_NUMBER }}.bobplugin
+          file: dist/doubao-seed-translation-${{ env.VERSION_NUMBER }}.bobplugin
+          asset_name: doubao-seed-translation-${{ env.VERSION_NUMBER }}.bobplugin
           tag: ${{ env.VERSION }}
           overwrite: true
           body: ${{ github.event.inputs.message }}
