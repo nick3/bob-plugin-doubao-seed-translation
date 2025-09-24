@@ -3,6 +3,13 @@
   "versions": [
     {
       "version": "1.1.0",
+      "desc": "支持Doubao-Seed-Translation模型的流式输出。",
+      "sha256": "a5ed13a179c7744256816f7e18b2ab877e2c74ef55761087eae2411afcb1d541",
+      "url": "https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/download/v1.1.0/doubao-seed-translation-1.1.0.bobplugin",
+      "minBobVersion": "1.8.0"
+    },
+    {
+      "version": "1.1.0",
       "desc": "Enable streaming for Doubao Seed Transformer",
       "sha256": "b83169d56460526eebd35fbc2eeb68780e823d46c38eeeb0ab9e6ed5e42b08f0",
       "url": "https://github.com/nick3/bob-plugin-doubao-seed-translation/releases/download/v1.1.0/doubao-seed-translation-1.1.0.bobplugin",
