@@ -126,10 +126,12 @@ export class DoubaoAdapter extends BaseAdapter {
       query,
     );
 
+    const streamEnabled = this.isStreamEnabled();
+
     return {
       model: this.getModel(),
       temperature: this.getTemperature(),
-      stream: false,
+      stream: streamEnabled,
       messages: [
         {
           role: 'system',
@@ -141,16 +143,6 @@ export class DoubaoAdapter extends BaseAdapter {
         },
       ],
     };
-  }
-
-  public override translate(
-    query: TextTranslateQuery,
-    apiKey: string,
-    apiUrl: string,
-    _isStream: boolean,
-  ): Promise<void> {
-    // Doubao transformer currently does not support streaming responses.
-    return super.translate(query, apiKey, apiUrl, false);
   }
 
   public getTextGenerationUrl(apiUrl: string): string {

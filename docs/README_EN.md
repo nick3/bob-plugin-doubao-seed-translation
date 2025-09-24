@@ -22,18 +22,18 @@
 
 > **Note**
 >
-> When connecting to Doubao Seed Transformer, set `Stream Output` to `Disable` and leave the System/User prompts blank to apply the built-in defaults.
+> When connecting to Doubao Seed Transformer, you can keep `Stream Output` set to `Enable` for real-time results, or switch to `Disable` if you prefer the response once it is complete. Leaving the System/User prompts blank keeps the built-in defaults.
 
 ## Introduction
 
 ChatGPT showcases the greatness of GPT models, so I have implemented the Bob translation + polishing + grammar modification plugin using OpenAI's API, with outstanding results!
 
 This repository is a fork of yetone's original [OpenAI Translator Bob Plugin](https://github.com/openai-translator/bob-plugin-openai-translator). Key differences highlight:
-- Doubao Seed Transformer is now a first-class provider with a model preset and non-streaming handling tailored to the EdgeOne adapter;
-- Configuration manuals clarify that Doubao requires disabling streaming while keeping System/User prompts empty for the default prompts;
+- Doubao Seed Transformer is now a first-class provider with a model preset and streaming-friendly handling tailored to the EdgeOne adapter;
+- Configuration manuals explain that Doubao supports streaming while the System/User prompts can remain empty to use the defaults;
 - Plugin metadata, packaging artifacts, and release automation now reference `nick3/bob-plugin-doubao-seed-translation` and the renamed package.
 
-The plugin now works with OpenAI, OpenAI Compatible services, Azure OpenAI, Google Gemini, and the Doubao Seed Transformer edge adapter. Doubao currently responds only in non-streaming mode—the plugin falls back automatically, and you can keep the System/User prompts empty to use the built-in defaults.
+The plugin now works with OpenAI, OpenAI Compatible services, Azure OpenAI, Google Gemini, and the Doubao Seed Transformer edge adapter. Doubao now supports streaming responses—enable it for live updates, or leave it disabled to receive the final result in one shot. Keeping the System/User prompts empty applies the built-in defaults.
 
 <details>
 

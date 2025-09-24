@@ -18,7 +18,7 @@
 
   - Doubao Seed Transformer：使用 [doubao-seed-translation-transformer](https://github.com/nick3/doubao-seed-translation-transformer) 在边缘函数上部署的兼容接口
     - 支持使用默认的系统指令与用户指令，保持输入框为空即可按需生成翻译提示
-    - 暂不支持流式输出，插件会自动改用非流式模式，建议在配置里将「流式输出」设为 `Disable`
+    - 支持实时流式输出，可在插件配置中按需切换「流式输出」选项
 
 
 ### API URL
@@ -146,7 +146,7 @@
   - 启用后翻译结果会实时显示
 
   - 禁用后会等待翻译完成后一次性显示
-  - Doubao Seed Transformer 暂不支持流式返回，插件会强制使用非流式逻辑
+  - Doubao Seed Transformer 支持流式返回，启用后将实时展示译文，关闭则会在完成后一次性显示
 
 ### 温度
 

@@ -18,7 +18,7 @@
 
   - Doubao Seed Transformer: Use the edge function adapter from [doubao-seed-translation-transformer](https://github.com/nick3/doubao-seed-translation-transformer)
     - Leave the System/User prompt inputs empty to rely on the built-in translation prompt
-    - Streaming is not supported; the plugin automatically falls back to non-streaming mode, so set “Stream Output” to `Disable`
+    - Streaming is supported; toggle the “Stream Output” option in Bob for real-time or batched results as needed
 
 ### API URL
 
@@ -145,7 +145,7 @@
   - When enabled, translation results will be displayed in real-time
 
   - When disabled, results will be displayed all at once after translation is complete
-  - Doubao Seed Transformer does not support streaming responses; the plugin forces non-streaming requests
+  - Doubao Seed Transformer supports streaming responses; enable it for real-time updates or disable it to receive the full result at once
 
 ### Temperature
 

@@ -22,18 +22,18 @@
 
 > **Note**
 >
-> 使用 Doubao Seed Transformer 时，请在 Bob 插件配置中将“流式输出”调整为 `Disable`，并可将系统指令与用户指令留空以沿用默认提示。
+> 使用 Doubao Seed Transformer 时，可将 Bob 插件配置中的“流式输出”保持为 `Enable` 以获得实时翻译；若希望一次性展示结果，也可以手动切换为 `Disable`。系统指令与用户指令留空即可沿用默认提示。
 
 ## 简介
 
 ChatGPT 向我们展示了 GPT 模型的伟大之处，所以我使用 OpenAI 的 API 实现了这个 Bob 的翻译 + 润色 + 语法修改插件，效果拔群！
 
 本项目基于 yetone 开源的 [OpenAI Translator Bob Plugin](https://github.com/openai-translator/bob-plugin-openai-translator) 二次开发。相比原始项目，当前仓库：
-- 新增了 Doubao Seed Transformer 服务提供商与模型预设，并适配其非流式响应特性；
-- 更新了配置文档，明确 Doubao 需要禁用流式输出且可留空系统/用户指令；
+- 新增了 Doubao Seed Transformer 服务提供商与模型预设，并适配其流式响应特性；
+- 更新了配置文档，说明 Doubao 支持流式输出且可留空系统/用户指令；
 - 重命名插件元数据与发布流程，指向 `nick3/bob-plugin-doubao-seed-translation` 的新仓库与包名。
 
-当前版本同时支持 OpenAI、OpenAI Compatible、Azure OpenAI、Google Gemini 以及 Doubao Seed Transformer（豆包翻译 EdgeOne 适配器）。Doubao 服务暂不支持流式输出，插件会自动改用非流式模式，配置时可保持系统/用户指令为空即可使用默认提示。
+当前版本同时支持 OpenAI、OpenAI Compatible、Azure OpenAI、Google Gemini 以及 Doubao Seed Transformer（豆包翻译 EdgeOne 适配器）。Doubao 服务现已支持流式输出，可按需启用实时模式，配置时可保持系统/用户指令为空即可使用默认提示。
 
 <details>
 
